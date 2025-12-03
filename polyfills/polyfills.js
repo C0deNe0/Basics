@@ -1,8 +1,12 @@
-//basic polyfill of forEach loop
+//basic polyfills
+
+// =============================================================================================//
+
+//POLYFILL - myForEach
+
 const arr = [1, 2, 3, 4, 5];
 // arr.forEach((el) => console.log(el));
 
-//polyfill - myForEach
 function printhsmt(el) {
   console.log(el);
 }
@@ -16,3 +20,19 @@ Array.prototype.myForEach = function (cb) {
 };
 
 arr.myForEach(printhsmt);
+
+// =============================================================================================//
+
+// MAP
+
+Array.prototype.myMap = function (cb) {
+  let res = [];
+  for (let index = 0; index < this.length; index++) {
+    res.push(cb(this[index]));
+  }
+  return res;
+};
+
+const a2 = arr.myMap((el) => el * 3);
+
+console.log(a2);
