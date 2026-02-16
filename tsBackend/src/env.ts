@@ -6,7 +6,7 @@ config();
 //schema of env
 const envSchema = z.object({
   PORT: z.coerce.number().optional(),
-  JWT_SECRET: z.string(),
+  JWT_SECRET: z.coerce.string(),
 });
 
 function createEnv(env: NodeJS.ProcessEnv) {
